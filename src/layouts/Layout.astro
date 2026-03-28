@@ -1,0 +1,173 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Casa de Dios - Un lugar de amor, fe y esperanza." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+		
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		/* Premium Church Theme Tokens */
+		--color-bg: #FFFFFF;
+		--color-bg-alt: #F8FAFC;
+		--color-text: #0F172A;
+		--color-text-light: #475569;
+		
+		--color-primary: #1E3A8A; /* Deep Blue - representing heaven, trust, and depth */
+		--color-primary-light: #3B82F6;
+		
+		--color-accent: #D4AF37; /* Metallic Gold - representing divine light, royalty, and warmth */
+		--color-accent-light: #FCD34D;
+		
+		--color-white: #FFFFFF;
+		
+		--font-heading: 'Playfair Display', serif;
+		--font-body: 'Inter', sans-serif;
+		
+		--transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		
+		/* Glassmorphism */
+		--glass-bg: rgba(255, 255, 255, 0.85);
+		--glass-border: rgba(255, 255, 255, 0.4);
+		--glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: var(--font-body);
+		background: var(--color-bg);
+		color: var(--color-text);
+		scroll-behavior: smooth;
+	}
+
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		line-height: 1.6;
+		overflow-x: hidden;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		line-height: 1.2;
+		color: var(--color-primary);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		transition: var(--transition-smooth);
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	/* Utility Classes */
+	.text-center { text-align: center; }
+	.text-golden { color: var(--color-accent); }
+	.bg-light { background-color: var(--color-bg-alt); }
+	
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.8rem 2rem;
+		font-family: var(--font-body);
+		font-weight: 500;
+		font-size: 1rem;
+		border-radius: 9999px;
+		cursor: pointer;
+		transition: var(--transition-smooth);
+		border: none;
+		outline: none;
+	}
+	
+	.btn-primary {
+		background-color: var(--color-primary);
+		color: var(--color-white);
+		box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+	}
+	
+	.btn-primary:hover {
+		background-color: var(--color-primary-light);
+		box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+		transform: translateY(-2px);
+	}
+	
+	.btn-outline {
+		background-color: transparent;
+		color: var(--color-primary);
+		border: 1px solid var(--color-primary);
+	}
+	
+	.btn-outline:hover {
+		background-color: var(--color-primary);
+		color: var(--color-white);
+		transform: translateY(-2px);
+	}
+	
+	.btn-golden {
+		background-color: var(--color-accent);
+		color: var(--color-text);
+		box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+	}
+	
+	.btn-golden:hover {
+		background-color: var(--color-accent-light);
+		transform: translateY(-2px);
+	}
+
+	/* Smooth Reveal Animations */
+	@keyframes fadeUp {
+		from { opacity: 0; transform: translateY(30px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	.animate-fade-up {
+		animation: fadeUp 1s ease-out forwards;
+	}
+	
+	.delay-100 { animation-delay: 100ms; }
+	.delay-200 { animation-delay: 200ms; }
+	.delay-300 { animation-delay: 300ms; }
+</style>

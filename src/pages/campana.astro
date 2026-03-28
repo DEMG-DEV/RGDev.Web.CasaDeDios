@@ -1,0 +1,455 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Campaña Evangelística | Casa de Dios">
+	<style is:global>
+		@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@700&family=Montserrat:wght@500;700;800;900&display=swap');
+		
+		/* Reset or hide default layout header/footer if needed, 
+		   but since we are inside <Layout> which has global styles, we will heavily scope ours */
+		html, body {
+			background: #111;
+			margin: 0; padding: 0;
+		}
+	</style>
+
+	<div class="flyer-wrapper">
+		<div class="flyer">
+			
+			<!-- TOP SECTION: Map Texture & Elements -->
+			<div class="flyer-top">
+				<div class="map-texture"></div>
+				
+				<!-- BIBLE MOCKUP -->
+				<div class="bible">
+					<div class="bible-spine"></div>
+					<div class="bible-cover">
+						<div class="bible-text">
+							<span>HOLY<br/>BIBLE</span>
+							<p>KJV</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- TOP RIGHT -->
+				<div class="top-right">
+					<!-- The Black Square Arrow -->
+					<div class="arrow-box">
+						<svg viewBox="0 0 100 100" width="80" height="80">
+							<rect width="100" height="100" fill="#1A1A1A"/>
+							<path d="M70,30 L30,70 M30,30 L30,70 L70,70" stroke="#fff" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+						</svg>
+					</div>
+
+					<!-- Circular Logo with arched text -->
+					<div class="logo-circle">
+						<svg viewBox="0 0 100 100" width="130" height="130">
+							<!-- Background -->
+							<circle cx="50" cy="50" r="46" fill="#14325a" stroke="#1A1A1A" stroke-width="4"/>
+							<!-- Arched Text paths -->
+							<path id="top-curve" d="M 12 50 A 38 38 0 1 1 88 50" fill="transparent" />
+							<path id="bottom-curve" d="M 16 50 A 34 34 0 0 0 84 50" fill="transparent" />
+							
+							<!-- Text Top -->
+							<text fill="#4a8cd4" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="900" letter-spacing="0.5">
+								<textPath href="#top-curve" startOffset="50%" text-anchor="middle">IGLESIA CRISTIANA</textPath>
+							</text>
+							<!-- Text Bottom -->
+							<text fill="#4a8cd4" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="900" letter-spacing="1">
+								<textPath href="#bottom-curve" startOffset="50%" text-anchor="middle">CASA DE DIOS</textPath>
+							</text>
+
+							<!-- Center Icon (Hands holding house) -->
+							<g transform="translate(25, 30) scale(0.5)">
+								<path d="M50 30 L20 60 L20 90 L80 90 L80 60 Z" fill="#4a8cd4"/>
+								<path d="M10 60 L50 20 L90 60" stroke="#4a8cd4" stroke-width="8" fill="none" stroke-linecap="round"/>
+								<path d="M40 70 h20 v20 h-20 z" fill="#14325a"/>
+								<path d="M40 80 h20 M50 70 v20" stroke="#4a8cd4" stroke-width="3"/>
+								<!-- stylized hands underneath -->
+								<path d="M15 110 Q 30 130 50 110 Q 70 130 85 110" stroke="#4a8cd4" stroke-width="6" fill="none" stroke-linecap="round"/>
+							</g>
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<!-- MIDDLE SECTION: Black jagged edge & Title -->
+			<div class="flyer-middle">
+				<div class="jagged-bg">
+					<!-- A more organic jagged shape -->
+					<svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+						<path d="M0,80 Q50,60 100,90 T250,50 T400,120 T600,40 T800,100 T1000,50 L1000,300 L0,300 Z" fill="#1A1A1A"/>
+					</svg>
+				</div>
+				
+				<div class="titles">
+					<!-- SVG used for exact CAMPANA text outline and gradient styling -->
+					<svg class="campana-text" viewBox="0 0 1000 280">
+						<defs>
+							<linearGradient id="silver-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#FFFFFF"/>
+								<stop offset="40%" stop-color="#E5E5E5"/>
+								<stop offset="70%" stop-color="#B0B0B0"/>
+								<stop offset="100%" stop-color="#888888"/>
+							</linearGradient>
+							<filter id="drop-shadow">
+								<feDropShadow dx="0" dy="15" stdDeviation="5" flood-color="#000" flood-opacity="0.8"/>
+							</filter>
+						</defs>
+						<text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="'Anton', sans-serif" font-size="240" fill="url(#silver-grad)" stroke="#1A1A1A" stroke-width="12" paint-order="stroke fill" letter-spacing="4" filter="url(#drop-shadow)">CAMPANA</text>
+					</svg>
+
+					<h2 class="script-title">Evangelística</h2>
+				</div>
+			</div>
+
+			<!-- BOTTOM SECTION: Blue background & Details -->
+			<div class="flyer-bottom">
+				<div class="main-message">
+					<h3>PARA UN CAMINO EN CONFUSIÓN JESÚS ES LA SOLUCIÓN</h3>
+					<p class="verse">Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre,<br/>sino por mí.</p>
+					<p class="verse-ref">Juan 14:6</p>
+				</div>
+
+				<div class="footer-grid">
+					<!-- Divider line -->
+					<div class="divider"></div>
+
+					<div class="footer-left">
+						<h4>IGLESIA CASA DE DIOS</h4>
+						<a href="https://maps.app.goo.gl/SQWXv8iAjWgbxcgg8" target="_blank" rel="noopener noreferrer" class="location">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2b3b4d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+							<span>CALLE HUERTO LA JOYA  COL. REAL DEL SOL 1</span>
+						</a>
+					</div>
+
+					<div class="footer-right">
+						<h4>VIERNES 17 ABRIL</h4>
+						<div class="time-badge">7:00 PM</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<style>
+		.flyer-wrapper {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 2rem;
+		}
+
+		.flyer {
+			background: #fff;
+			width: 100%;
+			max-width: 800px;
+			aspect-ratio: 3 / 4; /* approximate poster ratio */
+			height: auto;
+			position: relative;
+			box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* MAP / TEXTURE BACKGROUND */
+		.flyer-top {
+			flex: 0 0 45%;
+			position: relative;
+			background-color: #f0f0f0;
+			/* We use a complex repeating gradient + SVG filter to simulate detailed map texture */
+			background-image: 
+				linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+				repeating-linear-gradient(to right, transparent, transparent 40px, rgba(0,0,0,0.05) 41px),
+				repeating-linear-gradient(to bottom, transparent, transparent 40px, rgba(0,0,0,0.05) 41px),
+				url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.15"/></svg>');
+			background-size: cover, 100% 100%, 100% 100%, 200px 200px;
+			z-index: 1;
+		}
+
+		/* ELEMENTS IN TOP SECION */
+		.bible {
+			position: absolute;
+			top: -10px;
+			left: -20px;
+			width: 280px;
+			height: 380px;
+			background: #151515;
+			border-radius: 8px 18px 18px 8px;
+			transform: rotate(-18deg);
+			box-shadow: 25px 25px 40px rgba(0,0,0,0.5), inset -5px 0 15px rgba(255,255,255,0.1);
+			display: flex;
+			z-index: 5;
+		}
+
+		.bible-spine {
+			width: 25px;
+			height: 100%;
+			background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a);
+			border-radius: 8px 0 0 8px;
+			border-right: 2px solid #222;
+		}
+
+		.bible-cover {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: linear-gradient(135deg, #1c1c1c 0%, #111 100%);
+			border-radius: 0 18px 18px 0;
+			border: 1px solid #2a2a2a;
+			border-left: none;
+			position: relative;
+		}
+
+		/* Inner indent line usually on bibles */
+		.bible-cover::before {
+			content: '';
+			position: absolute;
+			left: 15px; top: 15px; bottom: 15px; right: 15px;
+			border: 1px solid rgba(0,0,0,0.8);
+			border-radius: 6px;
+			box-shadow: inset 0 0 5px rgba(255,255,255,0.03);
+		}
+
+		.bible-text {
+			text-align: center;
+			color: #CBA135; /* Gold */
+			font-family: 'Times New Roman', serif;
+			z-index: 2;
+			margin-left: 10px;
+		}
+
+		.bible-text span {
+			font-size: 2.5rem;
+			font-weight: 700;
+			line-height: 1;
+			display: block;
+			margin-bottom: 0.8rem;
+			letter-spacing: 1px;
+		}
+
+		.bible-text p {
+			font-size: 0.9rem;
+			margin: 0;
+			letter-spacing: 3px;
+			color: #A8862C;
+		}
+
+		.top-right {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			gap: 30px;
+			z-index: 5;
+		}
+
+		.arrow-box {
+			box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+		}
+
+		.logo-circle {
+			filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4));
+		}
+
+		/* MIDDLE SECTION */
+		.flyer-middle {
+			position: relative;
+			height: 0;
+			z-index: 10;
+		}
+
+		.jagged-bg {
+			position: absolute;
+			bottom: -150px; /* shift down so the shape rises up */
+			left: 0;
+			width: 100%;
+			height: 250px;
+			z-index: 1;
+		}
+
+		.jagged-bg svg {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		.titles {
+			position: absolute;
+			top: -40px; /* center vertically over the torn edge */
+			left: 50%;
+			transform: translateX(-50%);
+			width: 120%; /* allows text to bleed wide */
+			text-align: center;
+			z-index: 2;
+			pointer-events: none;
+		}
+
+		.campana-text {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.script-title {
+			font-family: 'Dancing Script', cursive !important;
+			font-size: 7.5rem;
+			color: #A3BDD7; /* Light blue like bottom BG */
+			margin: 0;
+			margin-top: -160px; /* overlap upwards */
+			transform: rotate(-4deg);
+			/* Stroke and shadow for the script text */
+			-webkit-text-stroke: 3px #fff;
+			filter: drop-shadow(5px 5px 3px rgba(0,0,0,0.6));
+			line-height: 1;
+			position: relative;
+			z-index: 3;
+			letter-spacing: 2px;
+		}
+
+		/* Override any Layout.astro styles for h1-h6 */
+		h1, h2, h3, h4, p {
+			font-family: 'Montserrat', sans-serif !important;
+		}
+
+		/* BOTTOM SECTION */
+		.flyer-bottom {
+			flex: 1;
+			background-color: #A3BDD7;
+			position: relative;
+			z-index: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 0 3rem 3rem 3rem;
+		}
+
+		.main-message {
+			text-align: center;
+			margin-bottom: 2.5rem;
+			margin-top: 10rem; /* push down clear of CAMPANA */
+			color: #2b3b4d;
+		}
+
+		.main-message h3 {
+			font-size: 1.6rem;
+			font-weight: 900;
+			margin-bottom: 0.8rem;
+			letter-spacing: -0.5px;
+			line-height: 1.2;
+		}
+
+		.verse {
+			font-size: 1.15rem;
+			font-weight: 500;
+			margin-bottom: 0.3rem;
+			color: #3b4e66;
+		}
+
+		.verse-ref {
+			font-size: 1.15rem;
+			font-weight: 800;
+			color: #3b4e66;
+		}
+
+		/* FOOTER */
+		.footer-grid {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+
+		.divider {
+			position: absolute;
+			top: -15px;
+			left: 0;
+			width: 100%;
+			height: 4px;
+			background: #2b3b4d;
+		}
+
+		.footer-left h4, .footer-right h4 {
+			font-size: 1.4rem;
+			font-weight: 900;
+			color: #2b3b4d;
+			margin: 0 0 0.5rem 0;
+			letter-spacing: 0.5px;
+		}
+
+		.footer-right h4 {
+			text-align: right;
+		}
+
+		.location {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: #2b3b4d;
+			font-weight: 800;
+			font-size: 1.05rem;
+			background: rgba(255,255,255,0.3);
+			padding: 0.5rem 0.8rem;
+			border-radius: 4px;
+			text-decoration: none;
+			transition: background 0.3s ease, transform 0.3s ease;
+		}
+
+		.location:hover {
+			background: rgba(255,255,255,0.6);
+			transform: scale(1.02);
+		}
+
+		.time-badge {
+			background: #1A1A1A;
+			color: #fff;
+			padding: 0.6rem 2rem;
+			font-size: 1.6rem;
+			font-weight: 900;
+			float: right;
+			border-radius: 2px;
+		}
+
+		/* Responsive specifically to keep the poster ratio/size behaving */
+		@media (max-width: 768px) {
+			.flyer-wrapper {
+				padding: 0;
+			}
+			.flyer {
+				aspect-ratio: auto;
+				min-height: 100vh;
+			}
+			.script-title {
+				font-size: 5rem;
+				margin-top: -100px;
+			}
+			.footer-grid {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 2rem;
+			}
+			.divider {
+				position: static;
+				width: 100%;
+				height: 4px;
+				margin-bottom: 1rem;
+			}
+			.time-badge {
+				float: left;
+			}
+			.footer-right h4 {
+				text-align: left;
+			}
+		}
+	</style>
+</Layout>
