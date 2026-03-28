@@ -429,26 +429,74 @@ import Layout from '../layouts/Layout.astro';
 				aspect-ratio: auto;
 				min-height: 100vh;
 			}
+			.flyer-top {
+				flex: none;
+				height: 320px;
+			}
+			.bible {
+				width: 180px;
+				height: 250px;
+				top: -10px;
+				left: -10px;
+			}
+			.bible-text span {
+				font-size: 1.5rem;
+			}
+			.top-right {
+				gap: 15px;
+			}
+			.titles {
+				width: 100%;
+				top: -30px;
+			}
+			.jagged-bg {
+				bottom: -100px;
+				height: 180px;
+			}
+			.campana-text {
+				width: 105%;
+				margin-left: -2.5%; /* slight bleed */
+			}
 			.script-title {
-				font-size: 5rem;
-				margin-top: -100px;
+				font-size: 4rem;
+				margin-top: -60px;
+				-webkit-text-stroke: 2px #fff;
+			}
+			.flyer-bottom {
+				padding: 0 1.5rem 2rem 1.5rem;
+			}
+			.main-message {
+				margin-top: 6rem;
+				margin-bottom: 2rem;
+			}
+			.main-message h3 {
+				font-size: 1.4rem;
+			}
+			.verse {
+				font-size: 1rem;
 			}
 			.footer-grid {
 				flex-direction: column;
 				align-items: flex-start;
-				gap: 2rem;
+				gap: 1.5rem;
 			}
 			.divider {
 				position: static;
 				width: 100%;
 				height: 4px;
-				margin-bottom: 1rem;
+				margin-bottom: 0.5rem;
 			}
 			.time-badge {
-				float: left;
+				float: none;
+				display: inline-block;
+				font-size: 1.4rem;
 			}
 			.footer-right h4 {
 				text-align: left;
+			}
+			.location {
+				font-size: 0.9rem;
+				padding: 0.5rem;
 			}
 		}
 	</style>
