@@ -42,35 +42,8 @@ import Layout from '../layouts/Layout.astro';
 						</svg>
 					</div>
 
-					<!-- Circular Logo with arched text -->
-					<div class="logo-circle">
-						<svg viewBox="0 0 100 100" width="130" height="130">
-							<!-- Background -->
-							<circle cx="50" cy="50" r="46" fill="#14325a" stroke="#1A1A1A" stroke-width="4"/>
-							<!-- Arched Text paths -->
-							<path id="top-curve" d="M 12 50 A 38 38 0 1 1 88 50" fill="transparent" />
-							<path id="bottom-curve" d="M 16 50 A 34 34 0 0 0 84 50" fill="transparent" />
-							
-							<!-- Text Top -->
-							<text fill="#4a8cd4" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="900" letter-spacing="0.5">
-								<textPath href="#top-curve" startOffset="50%" text-anchor="middle">IGLESIA CRISTIANA</textPath>
-							</text>
-							<!-- Text Bottom -->
-							<text fill="#4a8cd4" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="900" letter-spacing="1">
-								<textPath href="#bottom-curve" startOffset="50%" text-anchor="middle">CASA DE DIOS</textPath>
-							</text>
-
-							<!-- Center Icon (Hands holding house) -->
-							<g transform="translate(25, 30) scale(0.5)">
-								<path d="M50 30 L20 60 L20 90 L80 90 L80 60 Z" fill="#4a8cd4"/>
-								<path d="M10 60 L50 20 L90 60" stroke="#4a8cd4" stroke-width="8" fill="none" stroke-linecap="round"/>
-								<path d="M40 70 h20 v20 h-20 z" fill="#14325a"/>
-								<path d="M40 80 h20 M50 70 v20" stroke="#4a8cd4" stroke-width="3"/>
-								<!-- stylized hands underneath -->
-								<path d="M15 110 Q 30 130 50 110 Q 70 130 85 110" stroke="#4a8cd4" stroke-width="6" fill="none" stroke-linecap="round"/>
-							</g>
-						</svg>
-					</div>
+					<!-- Circular Logo (Casa de Dios) -->
+					<img src="/logo.png" alt="Casa de Dios" style="max-width: 140px;max-height: 140px;object-fit: contain;" data-astro-cid-soesviy4="">
 				</div>
 			</div>
 
@@ -391,6 +364,12 @@ import Layout from '../layouts/Layout.astro';
 			text-align: right;
 		}
 
+		@keyframes pulse-breathe {
+			0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+			50% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+			100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+		}
+
 		.location {
 			display: flex;
 			align-items: center;
@@ -398,16 +377,19 @@ import Layout from '../layouts/Layout.astro';
 			color: #2b3b4d;
 			font-weight: 800;
 			font-size: 1.05rem;
-			background: rgba(255,255,255,0.3);
+			background: rgba(255,255,255,0.4);
 			padding: 0.5rem 0.8rem;
-			border-radius: 4px;
+			border-radius: 6px;
 			text-decoration: none;
-			transition: background 0.3s ease, transform 0.3s ease;
+			transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+			animation: pulse-breathe 2.5s infinite ease-in-out;
 		}
 
 		.location:hover {
-			background: rgba(255,255,255,0.6);
-			transform: scale(1.02);
+			animation-play-state: paused;
+			background: rgba(255,255,255,0.8);
+			transform: scale(1.05);
+			box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
 		}
 
 		.time-badge {
