@@ -5,6 +5,8 @@ interface Props {
 	image?: string;
 }
 
+import Analytics from '@vercel/analytics/astro';
+
 const { 
 	title, 
 	description = "Casa de Dios - Un lugar de amor, fe y esperanza en Torreón. Únete a nuestra familia de fe para experimentar adoración contemporánea y la palabra viva de Dios.",
@@ -60,6 +62,7 @@ const resolvedImageWithDomain = new URL(image, siteUrl);
 	</head>
 	<body>
 		<slot />
+		<Analytics />
 	</body>
 </html>
 
